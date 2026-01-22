@@ -1,0 +1,128 @@
+/* Base animation for all sections - Modern & Smooth */
+.scroll-animate {
+  transition:
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate:not(.visible) {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animate specific child elements */
+.scroll-animate.visible > .hero-content,
+.scroll-animate.visible > .hero-image,
+.scroll-animate.visible > .about-wrapper,
+.scroll-animate.visible > .expertise-wrapper,
+.scroll-animate.visible > .portfolio-wrapper,
+.scroll-animate.visible > .contact-wrapper {
+  animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+/* Stagger delays for children */
+.scroll-animate.visible > *:nth-child(1):not(.bg-circle):not(.bg-circle2) {
+  animation-delay: 0.1s;
+}
+
+.scroll-animate.visible > *:nth-child(2):not(.bg-circle):not(.bg-circle2) {
+  animation-delay: 0.2s;
+}
+
+.scroll-animate.visible > *:nth-child(3):not(.bg-circle):not(.bg-circle2) {
+  animation-delay: 0.3s;
+}
+
+.scroll-animate.visible > *:nth-child(4):not(.bg-circle):not(.bg-circle2) {
+  animation-delay: 0.4s;
+}
+
+.scroll-animate.visible > *:nth-child(5):not(.bg-circle):not(.bg-circle2) {
+  animation-delay: 0.5s;
+}
+
+/* Prevent animation on decorative elements */
+.bg-circle,
+.bg-circle2,
+.decoration,
+.dots-left,
+.dots-right {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+/* Modern fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale up animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .bg-circle,
+  .bg-circle2 {
+    display: none;
+  }
+
+  .scroll-animate:not(.visible) {
+    transform: translateY(20px);
+  }
+}
